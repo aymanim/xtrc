@@ -1,7 +1,8 @@
 xtrc
 ====
 
-Run all cores at close to 100% for some amount of time (not clearly defined)
+Run all cores at close to 100% for some amount of time. This time is not clearly
+defined but it is around 45 seconds on my machine. 
 
 Uses multiple "transfer chains" made of a sender [S], relay(s) [R] and reciever [C]
 

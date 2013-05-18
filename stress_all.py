@@ -4,10 +4,8 @@ import multiprocessing
 
 
 def sender(conn, iters, comms):
-    p = 0
     for i in range(iters):
         for c in range(comms):
-            p += 1
             conn.send(str(i))
     conn.close()
 
@@ -15,8 +13,7 @@ def sender(conn, iters, comms):
 def relay(conn1, conn2, iters, comms):
     for i in range(iters):
         for c in range(comms):
-            conn1.recv()
-            conn2.send(str(i))
+            conn2.send(conn1.recv())
     conn1.close()
     conn2.close()
 
@@ -24,7 +21,6 @@ def relay(conn1, conn2, iters, comms):
 def receiver(conn, iters, comms):
     for i in range(iters):
         for c in range(comms):
-            # print 
             conn.recv()
     conn.close()
 
@@ -34,7 +30,7 @@ if __name__ == '__main__':
     num_iterations = 100000
     num_comms_per_iteration = 5 
     num_cores = multiprocessing.cpu_count()
-    num_transfers = num_cores
+    num_transfers = 2 * num_cores
     print "Total number of transfer chains: ", num_transfers
 
     pipes = []
