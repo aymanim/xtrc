@@ -8,4 +8,6 @@ Uses multiple "transfer chains" made of a sender [S], relay(s) [R] and reciever 
 Sender initates a transfer of trivial data over a pipe, and the data travels
 the entire S-R..-C chain. 
 
-Program stopps after all the Cs have received the data
+Program stops after all the Cs have received the data
+
+Tested on ubuntu precise.

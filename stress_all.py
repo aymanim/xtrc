@@ -35,7 +35,7 @@ if __name__ == '__main__':
     num_comms_per_iteration = 5 
     num_cores = multiprocessing.cpu_count()
     num_transfers = num_cores
-    print num_transfers
+    print "Total number of transfer chains: ", num_transfers
 
     pipes = []
     transfers = []
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         parent_conn, child_conn = multiprocessing.Pipe()
         pipes.append([parent_conn, child_conn])
 
-    print len(pipes)
+    print "Total number of pipes: ", len(pipes)
 
     # Each transfer chain needs at least one sender
     for i in range(num_transfers):
